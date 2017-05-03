@@ -9,41 +9,88 @@
  * @package akcija-mladih
  */
 
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
-<meta charset="<?php bloginfo( 'charset' ); ?>">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="profile" href="http://gmpg.org/xfn/11">
+	<!-- Meta tags (needs to be first!) -->
+	<meta charset="<?php bloginfo( 'charset' ); ?>">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- Site title -->
+	<title><?php wp_title(''); ?></title>
+	<!-- Favicons -->
+	<link rel="shortcut icon" href="favicon.png">
+	<link rel="shortcut icon" href="favicon.ico">
+	<link rel="apple-touch-icon" type="image/png" href="favicon-iphone.png">
+	<link rel="apple-touch-icon" type="image/png" sizes="72x72" href="favicon-ipad.png">
+	<?php wp_head(); ?>
 
-<?php wp_head(); ?>
 </head>
-
 <body <?php body_class(); ?>>
-<div id="page" class="site">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'akcija-mladih' ); ?></a>
 
-	<header id="masthead" class="site-header" role="banner">
-		<div class="site-branding">
-			<?php
-			if ( is_front_page() && is_home() ) : ?>
-				<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-			<?php else : ?>
-				<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-			<?php
-			endif;
+	<!-- Off-canvas wrap -->
+	<div class="cs-offcanvas-wrap">
+		<div class="cs-offcanvas-close"><i class="fa fa-close" aria-hidden="true"></i></div>
+		<div class="cs-offcanvas-nav"></div>
+	</div><!-- end .cs-offcanvas-wrap -->
 
-			$description = get_bloginfo( 'description', 'display' );
-			if ( $description || is_customize_preview() ) : ?>
-				<p class="site-description"><?php echo $description; /* WPCS: xss ok. */ ?></p>
-			<?php
-			endif; ?>
-		</div><!-- .site-branding -->
+	<!-- Wrapper -->
+	<div id="cs-wrapper">
 
-		<nav id="site-navigation" class="main-navigation" role="navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'akcija-mladih' ); ?></button>
-			<?php wp_nav_menu( array( 'theme_location' => 'menu-1', 'menu_id' => 'primary-menu' ) ); ?>
-		</nav><!-- #site-navigation -->
-	</header><!-- #masthead -->
-
-	<div id="content" class="site-content">
+		<!-- Header -->
+		<header id="cs-header">
+			<!-- Primary nav -->
+			<div class="cs-primary-nav">
+				<nav>
+				    <ul>
+				    	<li class="current-menu-item"><a href="index.html">Naslovnica</a></li>
+				        <li class="menu-item-has-children">
+				            <a href="index.html">Padajući izbornik</a>
+				            <ul class="sub-menu">
+				                <li class="menu-item-has-children">
+				                    <a href="#">Link</a>
+				                    <ul class="sub-menu">
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                    </ul>
+				                </li>
+				                <li class="menu-item-has-children">
+				                    <a href="#">Link</a>
+				                    <ul class="sub-menu">
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                    </ul>
+				                </li>
+				                <li class="menu-item-has-children">
+				                    <a href="#">Link</a>
+				                    <ul class="sub-menu">
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                        <li><a href="#">Link</a></li>
+				                    </ul>
+				                </li>
+				            </ul>
+				        </li>
+				        <li><a href="o-nama.html">O nama</a></li>
+				        <li><a href="program.html">Program</a></li>
+				        <li><a href="kontakt.html">Kontakt</a></li>
+				        <li><a href="pridruzi-se.html">Pridruži se!</a></li>
+				        <li><a href="video.html">Video</a></li>
+				    </ul>
+				</nav>
+				<!-- Toggle nav -->
+				<div class="cs-toggle-nav">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div><!-- end .cs-toggle-nav -->
+            </div><!-- end .cs-primary-nav -->
+			<!-- Header hero -->
+			<div class="cs-header-hero">
+				<!-- Logo brand -->
+				<div class="cs-header-logo">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>"><img src="<?php bloginfo( 'template_url' ); ?>/demo/Akcija-Mladih.png" alt="Akcija Mladih"></a>
+				</div><!-- end .cs-header-logo -->
+			</div><!-- end .cs-header-hero -->
+		</header><!-- end #cs-header -->

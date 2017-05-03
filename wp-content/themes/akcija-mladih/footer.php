@@ -10,17 +10,24 @@
  */
 
 ?>
+<!-- Call to action -->
+		<div class="cs-call-to-action">
+			<h3>Pridruži nam se!</h3>
+			<p>Na tiskovnoj konferenciji predsjednik Akcije mladih Vjekoslav Rubeša i predsjednik Stranke<br>narodnog i građanskog aktivizma - SNAGA-e.</p>
+			<a href="pridruzi-se.html" class="cs-btn">Više</a>
+		</div><!-- end .cs-call-to-action -->
 
-	</div><!-- #content -->
+		<!-- Footer -->
+		<footer id="cs-footer">
+			<div class="cs-container"> 
+				<p><script type="text/javascript">
+                    var d = new Date()
+                    document.write(d.getFullYear())
+                </script> &copy; Akcija Mladih. Izrada i dizajn <a href="http://codeostudio.hr/" target="_blank">Codeo Studio</a>.</p>
+			</div>
+		</footer><!-- end #cs-footer -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'akcija-mladih' ) ); ?>"><?php printf( esc_html__( 'Proudly powered by %s', 'akcija-mladih' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( esc_html__( 'Theme: %1$s by %2$s.', 'akcija-mladih' ), 'akcija-mladih', '<a href="https://automattic.com/" rel="designer">Alen Barac</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+	</div><!-- #cs-wrapper -->
 
 <?php wp_footer(); ?>
 

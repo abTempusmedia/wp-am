@@ -42,6 +42,9 @@ function akcija_mladih_setup() {
 	 */
 	add_theme_support( 'post-thumbnails' );
 
+	add_theme_support(  'post-formats', array(  'quote' ) );
+
+
 	// This theme uses wp_nav_menu() in one location.
 	register_nav_menus( array(
 		'menu-1' => esc_html__( 'Primary', 'akcija-mladih' ),
@@ -106,14 +109,21 @@ add_action( 'widgets_init', 'akcija_mladih_widgets_init' );
  */
 function akcija_mladih_scripts() {
 	wp_enqueue_style( 'akcija-mladih-style', get_stylesheet_uri() );
+	wp_enqueue_style( 'akcija-mladih-normalize', get_template_directory_uri() . '/assets/css/normalize.css', array(), '' );
+	wp_enqueue_style( 'akcija-mladih-fontawesome', get_template_directory_uri() . '/assets/css/fontawesome.css', array(), '' );
+	wp_enqueue_style( 'akcija-mladih-swiper', get_template_directory_uri() . '/assets/css/swiper.css', array(), '' );
+	wp_enqueue_style( 'akcija-mladih-popup', get_template_directory_uri() . '/assets/css/popup.css', array(), '' );
+	wp_enqueue_style( 'akcija-mladih-main', get_template_directory_uri() . '/assets/css/main.css', array(), '' );
 
-	wp_enqueue_script( 'akcija-mladih-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
+	//Google Fonts
+	wp_enqueue_style( 'akcija-mladih-google-fonts', 'https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,700', array(), '' );     
 
-	wp_enqueue_script( 'akcija-mladih-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
-
-	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
-		wp_enqueue_script( 'comment-reply' );
-	}
+	// Javascripts  
+	wp_enqueue_script( 'akcija-mladih-fitvids', get_template_directory_uri() . '/assets/js/jquery-fitvids.js', array('jquery'), '', true );
+	wp_enqueue_script( 'akcija-mladih-popup', get_template_directory_uri() . '/assets/js/jquery-popup.js', array('jquery'), '', true );
+	wp_enqueue_script( 'akcija-mladih-swiper', get_template_directory_uri() . '/assets/js/jquery-touch.js', array('jquery'), '', true );
+	
+	wp_enqueue_script( 'akcija-mladih-init', get_template_directory_uri() . '/assets/js/jquery-init.js', array('jquery'), '', true );
 }
 add_action( 'wp_enqueue_scripts', 'akcija_mladih_scripts' );
 

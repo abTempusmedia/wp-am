@@ -9,39 +9,28 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php
-		if ( is_single() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) : ?>
-		<div class="entry-meta">
-			<?php akcija_mladih_posted_on(); ?>
-		</div><!-- .entry-meta -->
-		<?php
-		endif; ?>
-	</header><!-- .entry-header -->
-
-	<div class="entry-content">
-		<?php
-			the_content( sprintf(
-				/* translators: %s: Name of current post. */
-				wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'akcija-mladih' ), array( 'span' => array( 'class' => array() ) ) ),
-				the_title( '<span class="screen-reader-text">"', '"</span>', false )
-			) );
-
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'akcija-mladih' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php akcija_mladih_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+<!-- Post -->
+<article class="cs-post-type">
+	<figure class="cs-post-image">
+		<a href="<?php the_permalink(); ?>">
+			<?php the_post_thumbnail(); ?>
+		</a>
+	</figure>
+	<div class="cs-post-meta">
+		<time><?php the_date(); ?></time>
+		<div class="cs-post-share" title="Podijeli članak">
+			<div class="cs-share-open">
+				<i class="fa fa-share-alt" aria-hidden="true"></i>
+			</div>
+			<div class="cs-share-icons">
+				<a href="#" class="facebook"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+				<a href="#" class="twitter"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+				<a href="#" class="google"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="cs-post-body">
+		<h3><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
+		<p><?php the_excerpt(); ?></p>
+	</div>
+</article><!-- end .cs-post-type -->
